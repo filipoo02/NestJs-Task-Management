@@ -19,6 +19,13 @@ export class TasksService {
         this.tasks = this.tasks.filter((task: Task) => task.id !== id)
     }
 
+    updateTaskStatus(status: TaskStatus, id: string): Task{
+        const updatedTask = this.getTaskById(id)
+        updatedTask.status = status
+
+        return updatedTask
+    }
+
     createTask(createTaskDto: CreateTaskDto): Task{
         const { title, description } = createTaskDto
         
